@@ -1,7 +1,14 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
 
 function App() {
+  var person = {
+    fname: "sumon ",
+    lname: "paul",
+    fullname: function () {
+      return this.fname + this.lname;
+    },
+  };
   return (
     <div className="App">
       <header className="App-header">
@@ -9,14 +16,8 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <p>My first react paragraph</p>
+        <h1>Object call: {person.fullname()}</h1>
       </header>
     </div>
   );
