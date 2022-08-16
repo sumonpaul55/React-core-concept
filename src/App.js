@@ -27,6 +27,8 @@ function App() {
           {5 + 4}
         </h1>
         <h4 style={style}>style and css apply </h4>
+        <h3 className="aclass">styling through call a class</h3>
+        <h3 class="secondclass">styling through call a class</h3>
       </header>
     </div>
   );
