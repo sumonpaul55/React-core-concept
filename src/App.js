@@ -9,6 +9,10 @@ function App() {
       return this.fname + this.lname;
     },
   };
+  var style = {
+    color: "red",
+    backgroundColor: "cyan",
+  };
   return (
     <div className="App">
       <header className="App-header">
@@ -18,6 +22,11 @@ function App() {
         </p>
         <p>My first react paragraph</p>
         <h1>Object call: {person.fullname()}</h1>
+        <h1>
+          Mathmetical term : <code>5+4 = </code>
+          {5 + 4}
+        </h1>
+        <h4 style={style}>style and css apply </h4>
       </header>
     </div>
   );
