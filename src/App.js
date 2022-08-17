@@ -2,25 +2,39 @@ import logo from "./logo.svg";
 import "./App.css";
 
 function App() {
+  const nayoks = ["Anowar", "Jashim", "Manna", "Rubel", "bappi"];
   const products = [
     { name: "Photoshop cs", price: "99.44$" },
-    { name: "Photoshop cc", price: "93.44$" },
     { name: "Photoshop cx", price: "33.44$" },
+    { name: "Photoshop cy", price: "30.44$" },
+  ];
+  const friends = [
+    { name: "Shuva roy", age: "23" },
+    { name: "Sujan rabidas", age: "24" },
+    { name: "Shawn das", age: "25" },
+    { name: "Arnob chandra paul", age: "26" },
   ];
   return (
     <div className="App">
       <header className="App-header">
-        <div style={{ display: "flex" }}>
-          <Product product={products[0]}></Product>
-          <Product product={products[1]}></Product>
-          <Product product={products[2]}></Product>
-        </div>
+        {products.map((pd) => (
+          <Product product={pd}></Product>
+        ))}
+        {/* <Person name={nayoks[0]} age={35}></Person> */}
+        <ul>
+          {nayoks.map((nayok) => (
+            <li>{nayok}</li>
+          ))}
+        </ul>
+        {friends.map((dost) => (
+          <Friends friends={dost}></Friends>
+        ))}
       </header>
     </div>
   );
 }
 const Product = (props) => {
-  const styleProduct = {
+  const styleproduct = {
     background: "lightblue",
     padding: "15px",
     borderRadius: "10px",
@@ -30,7 +44,7 @@ const Product = (props) => {
   const { name, price } = props.product;
 
   return (
-    <div style={styleProduct}>
+    <div style={styleproduct}>
       <h2>{name}</h2>
       <h3>{price}</h3>
       <button style={{ padding: "10px", borderRadius: "5px", border: "none" }}>Buy Now</button>
@@ -38,4 +52,19 @@ const Product = (props) => {
   );
 };
 
+function Friends(props) {
+  const friendStyle = {
+    color: "red",
+    background: "blue",
+    padding: "20px",
+    margin: "10px",
+  };
+  const { name, age } = props.friends;
+  return (
+    <div style={friendStyle}>
+      <h2>{name}</h2>
+      <h3>Age {age}</h3>
+    </div>
+  );
+}
 export default App;
