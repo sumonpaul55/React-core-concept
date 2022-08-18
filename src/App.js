@@ -1,5 +1,6 @@
 import logo from "./logo.svg";
 import "./App.css";
+import { useState } from "react";
 
 function App() {
   const nayoks = ["Anowar", "Jashim", "Manna", "Rubel", "bappi"];
@@ -8,11 +9,13 @@ function App() {
     { name: "Photoshop cx", price: "33.44$" },
     { name: "Photoshop cy", price: "30.44$" },
   ];
-  const friends = [
+  let friends = [
     { name: "Shuva roy", age: "23" },
     { name: "Sujan rabidas", age: "24" },
     { name: "Shawn das", age: "25" },
     { name: "Arnob chandra paul", age: "26" },
+    { name: "Anto paul", age: "23" },
+    { name: "Someone else", age: "26" },
   ];
   return (
     <div className="App">
@@ -26,10 +29,25 @@ function App() {
             <li>{nayok}</li>
           ))}
         </ul>
-        {friends.map((dost) => (
-          <Friends friends={dost}></Friends>
-        ))}
+        {/* {friends.map((dost) => (
+          <Friends fname={dost}></Friends>
+        ))} */}
+        <Counter></Counter>
       </header>
+    </div>
+  );
+}
+function Counter() {
+  const [count, setCount] = useState(10);
+  return (
+    <div>
+      <h1>Counter : {count}</h1>
+      <button style={{ padding: "10px" }} onClick={() => setCount(count + 1)}>
+        Increase
+      </button>
+      <button style={{ padding: "10px" }} onClick={() => setCount(count - 1)}>
+        Decrease
+      </button>
     </div>
   );
 }
@@ -59,7 +77,7 @@ function Friends(props) {
     padding: "20px",
     margin: "10px",
   };
-  const { name, age } = props.friends;
+  const { name, age } = props.fname;
   return (
     <div style={friendStyle}>
       <h2>{name}</h2>
