@@ -20,6 +20,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <Todos></Todos>
         <Users></Users>
         {products.map((pd) => (
           <Product product={pd}></Product>
@@ -38,6 +39,27 @@ function App() {
     </div>
   );
 }
+function Todos() {
+  const [todo, setTodo] = useState([]);
+
+  useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/todos")
+      .then((res) => res.json())
+      .then((data) => {
+        data = data.slice(0, 20);
+        setTodo(data);
+      });
+  }, []);
+  return (
+    <div>
+      <h4>what to do: </h4>
+      {todo.map((todos) => (
+        <h5>{todos.title}</h5>
+      ))}
+    </div>
+  );
+}
+
 function Users() {
   const [users, setUsers] = useState([]);
 
